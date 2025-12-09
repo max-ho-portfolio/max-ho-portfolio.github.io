@@ -8,8 +8,6 @@ nav:
 
 theme:
     name: material
-    logo: images/fish.svg
-    favicon: images/fish.svg
     features: 
         - content.code.annotate
 
