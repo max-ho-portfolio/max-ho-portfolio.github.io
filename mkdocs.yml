@@ -2,9 +2,11 @@ site_name: max ho portfolio
 site_url: https://sitename.example
 
 nav:
-  - 'knime_etl.md'
-  - 'power_bi_python.md'
-  - 'classification_mushroom_edibility.md'
+  - Work Experience:
+    - 'knime_etl.md'
+    - 'power_bi_python.md'
+  - 'transcripts_certifications.md'
+  
 
 theme:
     name: material

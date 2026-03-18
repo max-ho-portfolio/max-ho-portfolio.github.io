@@ -58,35 +58,37 @@ Screenshot of KNIME.
 }
 </style>
 
-<pre>
-<b>Algorithm</b> ETL_program(<span class="code">file_names</span>):  
-    <b>Input:</b>   
-        <span class="code">file_names</span>: A set of Excel file names.
-    <b>Output:</b> A dictionary of (file name, error message) items. 
 
-    <span class="code">not_loaded_file_names</span> = <span class="code">file_names</span> − <span class="code">loaded_file_names</span>. 
-    <span class="code">file_name_to_error_message</span> = <span class="code">dict()</span>.
+```
+Algorithm ETL_program(file_names):  
+    Input:   
+        file_names: A set of Excel file names.
+    Output: A dictionary of (file name, error message) items. 
 
-    <b>for</b> each Excel file name <span class="code">f.name</span> in <span class="code">not_loaded_file_names</span>:
-	    <span class="code">f.data</span> = Extract the data table from <span class="code">f</span>.  
-        <b>try:</b>
-            <span class="code">T(f.data)</span> = Apply each transformation in <span class="code">T</span> to <span class="code">f.data</span>. 
-	        Load <span class="code">T(f.data)</span> into <span class="code">all_data</span>.
-	    <b>except</b> Exception as <span class="code">error</span>:
-	        <span class="code">file_name_to_error_message[f.name]</span> = <span class="code">str(error)</span>.   
-	    <b>else:</b> 
-	        Add <span class="code">f.name</span> to <span class="code">loaded_file_names</span>.
+    not_loaded_file_names = file_names.difference(loaded_file_names). 
+    file_name_to_error_message = dict().
+
+    for each Excel file name f.name in not_loaded_file_names:
+	    f.data = Extract the data table from f.  
+        try:
+            T(f.data) = Apply each transformation in T to f.data. 
+	        Load T(f.data) into all_data.
+	    except Exception as error:
+	        file_name_to_error_message[f.name] = str(error).   
+	    else: 
+	        Add f.name to loaded_file_names.
         
-    <b>return</b> <span class="code">file_name_to_error_message</span>.
+    return file_name_to_error_message.
+```
 
-</pre>
 <br>
 After executing `file_name_to_error_message = ETL_program(all_file_names)`, I execute the following steps manually:
-<pre>
-<b>for</b> <span class="code">f.name</span>, <span class="code">error_message</span> in <span class="code">file_name_to_error_message.items()</span>:
-    Use <span class="code">error_message</span> to update the data transformations in <span class="code">T</span>. 
-    Execute <span class="code">ETL_program(set(f.name))</span>. 
-</pre>
+
+```
+for f.name, error_message in file_name_to_error_message.items():
+    Use error_message to update the data transformations in T. 
+    Execute ETL_program(set(f.name)). 
+```
 
 
 ## Example execution of the ETL program
