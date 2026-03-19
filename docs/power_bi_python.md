@@ -1,4 +1,4 @@
-# Automating Tilray's administrative tasks using Python
+# Automating Tilray's data entry using Python
 
 ## Summary
 
