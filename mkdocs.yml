@@ -3,8 +3,8 @@ site_url: https://sitename.example
 
 nav:
   - Work Experience:
-    - 'knime_etl.md'
     - 'power_bi_python.md'
+    - 'knime_etl.md'
   - 'transcripts_certifications.md'
   
 

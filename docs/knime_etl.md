@@ -42,10 +42,6 @@ Screenshot of KNIME.
 `all_data`
 :   A database table that will store `T(f.data)` for every Excel file `f`.
 
-**match**
-:   A table `A` matches a table `B` if `A` and `B` have the same column names and data types.
-    `T(f.data)` can only be loaded into `all_data` if `T(f.data)` matches `all_data`.
-
 `all_file_names`
 :   A set of all the Excel file names.
 
@@ -53,12 +49,7 @@ Screenshot of KNIME.
 :   A set of the Excel file names `f.name` such that `T(f.data)` has been loaded into `all_data`. 
 
 ## Pseudocode of the ETL program (similar to Python)
-<style>
-.code {
-    background-color: #f5f5f5; 
-}
-</style>
-
+**Note:** `T(f.data)` can only be loaded into `all_data` if `T(f.data)` has the same column names and data types as `all_data`.
 
 ```
 Algorithm ETL_program(file_names):  
@@ -83,7 +74,7 @@ Algorithm ETL_program(file_names):
 ```
 
 <br>
-After executing `file_name_to_error_message = ETL_program(all_file_names)`, I execute the following steps manually:
+After executing `file_name_to_error_message = ETL_program(all_file_names)`, I executed the following steps manually:
 
 ```
 for f.name, error_message in file_name_to_error_message.items():
@@ -98,11 +89,11 @@ for f.name, error_message in file_name_to_error_message.items():
 :   1. Convert `date` to the date data type.    
     2. Convert `column_a` to the integer data type.   
 
-**1. Execute `ETL_program(set(f_1.name))`:**  
+**1. Execute `ETL_program(set(f.name))`:**  
 
 ![](images/knime_etl/etl_program_1.png){width="800"}
 /// caption
-`T(f_1.data)` can't be loaded into `all_data` because `"missing"` in `column_a` can't be converted to an integer. 
+`T(f.data)` can't be loaded into `all_data` because `"missing"` in `column_a` can't be converted to an integer. 
 ///
 
 **2. Update `T`:**  
@@ -112,9 +103,9 @@ for f.name, error_message in file_name_to_error_message.items():
     2. <span style="background-color:#d8f5e6">In `column_a`, replace all cells matching the regular expression `“^missing$”` with `null`.</span>
     3. Convert `column_a` to the integer data type.
 
-**3. Execute `ETL_program(set(f_1.name))`:**    
+**3. Execute `ETL_program(set(f.name))`:**    
 
 ![](images/knime_etl/etl_program_2.png){width="1000"}
 /// caption
-After updating `T`, `T(f_1.data)` is loaded into `all_data`.
+After updating `T`, `T(f.data)` is loaded into `all_data`.
 ///
