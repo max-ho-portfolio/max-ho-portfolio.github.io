@@ -6,7 +6,7 @@
 
 !!! abstract ""
     :fontawesome-solid-triangle-exclamation: **Problem:** Every week, my team
-    received new financial and inventory data to update our Power BI reports. The new data was stored in over 20 Excel files. Every week, my team spent around an hour cleaning the Excel files using Power Query.
+    received new financial and inventory data (stored in over 20 Excel files) to update our Power BI reports. Every week, my team spent around an hour cleaning the new data using Power Query.
     
     :material-lightbulb-on-10: **Solution:** I used KNIME to develop an Extract, Transform, Load (ETL) workflow to extract the data from the Excel files, transform the data, then load the transformed data into SQL Server (the company's database). I also implemented exception handling and logging to facilitate debugging.
 
