@@ -5,11 +5,11 @@
 ![](images/power_bi_python/project_diagram.png){width="500"}
 
 !!! abstract ""
-    :fontawesome-solid-triangle-exclamation: **Problem:** My manager asked me to create hundreds of Power BI report pages, each presenting the result of a different database query. 
+    :fontawesome-solid-triangle-exclamation: **Problem:** My manager asked me to create hundreds of copies of a Power BI template report page, manually filling in each page with a different data table using the Power BI graphical user interface (GUI).
 
-    :material-lightbulb-on-10: **Solution:** I wrote a Python script to automate the creation of the Power BI report pages.
+    :material-lightbulb-on-10: **Solution:** After manually filling in a few pages, I wondered if there was a faster way to complete the task. Hence, I read the Power BI developer documentation and discovered the recently released "Power BI Project" feature, which my manager was unaware of. The feature enabled me to write a Python script to automate the task.
 
-    :octicons-graph-16: **Results:** The Python script saved days of work for my team. Without the script, we would have had to manually create the report pages using the Power BI graphical user interface (GUI). 
+    :octicons-graph-16: **Results:** The Python script saved days of work for my team.
 
 
 ## Power BI Projects (PBIP)
